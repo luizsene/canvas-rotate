@@ -49,3 +49,22 @@ gulp.task('git-check', function(done) {
   }
   done();
 });
+
+
+//=================================================== NgDocs =======================================================
+
+gulp.task('ngdocs', [], function () {
+  var gulpDocs = require('gulp-ngdocs');
+  var options = {
+      html5Mode: true,
+      startPage: '/api',
+      title: "Canvas Rotate Docs",
+    };
+
+    return gulp.src([
+      './dist/directive.js',
+    ])
+
+ .pipe(gulpDocs.process(options))
+ .pipe(gulp.dest('./docs'));
+});
