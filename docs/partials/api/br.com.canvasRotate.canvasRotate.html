@@ -1,0 +1,217 @@
+<h1><code ng:non-bindable="">canvasRotate</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">br.com</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-page"><p>Diretiva que fornece a possibilidade de rotacionar imagens para edição</p>
+</div></div>
+<h2 id="dependencies">Dependencies</h2>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="api/ng.$ionicGesture">$ionicGesture</a></code>
+</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<div class="usage">as attribute<pre class="prettyprint linenums">&lt;any canvas-rotate&gt;
+   ...
+&lt;/any&gt;</pre>
+<h3 id="usage_directive-info">Directive info</h3>
+<div class="directive-info"><ul><li>This directive creates new scope.</li>
+</ul>
+</div>
+</div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_calcangular">calcAngular()</h3>
+<div class="calcangular"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-calcangular-page"><p>Função disparada quando uma rotação é detectada na imagem</p>
+</div></div>
+</li>
+<li><h3 id="methods_coords">coords()</h3>
+<div class="coords"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-coords-page"><p>Retorna um objeto contendo todas as coordenadas de uma imagem
+<pre class="prettyprint linenums">
+           options: {
+                  X:1800,
+                  x0:-91,
+                  x1:660,
+                  x2:569,
+                  Y:2880,
+                  y0:-333,
+                  y1:412,
+                  y2:79,
+                  positionY:-144,
+                  positionX:242,
+                  angle:90,
+                  url:"http://localhost:8100/img/mh3yxiJ.jpg"
+                }
+</pre>
+</div><h5 id="methods_coords_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-coords-page"><p>coordenadas - Coordenadas da imagem</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="methods_drawrotatedimage">drawRotatedImage(image, x, y, angle)</h3>
+<div class="drawrotatedimage"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-drawrotatedimage-page"><p>Desenha a imagem dentro do canvas</p>
+</div><h5 id="methods_drawrotatedimage_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>image</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-drawrotatedimage-page"><ul>
+<li>Instância da imagem</li>
+</ul>
+</div></td></tr><tr><td>x</td><td><a href="" class="label type-hint type-hint-number">Number</a></td><td><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-drawrotatedimage-page"><ul>
+<li>Posição em relação ao eixo das abscissas</li>
+</ul>
+</div></td></tr><tr><td>y</td><td><a href="" class="label type-hint type-hint-number">Number</a></td><td><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-drawrotatedimage-page"><ul>
+<li>Posição em relação ao eixo das ordenadas</li>
+</ul>
+</div></td></tr><tr><td>angle</td><td><a href="" class="label type-hint type-hint-number">Number</a></td><td><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-drawrotatedimage-page"><ul>
+<li>Ângulo de rotação da imagem</li>
+</ul>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_init">init(config)</h3>
+<div class="init"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-init-page"><p>Efetua a configuração inicial da directiva</p>
+</div><h5 id="methods_init_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>config</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-init-page"><ul>
+<li>Parâmetros de inicialização da directiva</li>
+</ul>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_initvars">initVars()</h3>
+<div class="initvars"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-initvars-page"><p>Função que inicializa a directiva após a imagem ser carregada</p>
+</div></div>
+</li>
+<li><h3 id="methods_rotate">rotate(rigth)</h3>
+<div class="rotate"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-rotate-page"><p>Função que aplica a rotação na imagem</p>
+</div><h5 id="methods_rotate_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>rigth</td><td><a href="" class="label type-hint type-hint-boolean">Boolean</a></td><td><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-rotate-page"><ul>
+<li>True se a rotação deve ser para a direita</li>
+</ul>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+<div class="member property"><h2 id="properties">Properties</h2>
+<ul class="properties"><li><h3 id="properties_angulo">ANGULO</h3>
+<div class="angulo"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-angulo-page"><p>Ângulo de rotação</p>
+</div></div>
+</li>
+<li><h3 id="properties_radians">RADIANS</h3>
+<div class="radians"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-radians-page"><p>Radiano do arco</p>
+</div></div>
+</li>
+<li><h3 id="properties_x">X</h3>
+<div class="x"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-x-page"><p>Largura total da imagem</p>
+</div></div>
+</li>
+<li><h3 id="properties_y">Y</h3>
+<div class="y"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-y-page"><p>Altura total da imagem</p>
+</div></div>
+</li>
+<li><h3 id="properties_canvas">canvas</h3>
+<div class="canvas"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-canvas-page"><p>Instância do canvas onde a imagem sera escrita e manipulada</p>
+</div></div>
+</li>
+<li><h3 id="properties_context">context</h3>
+<div class="context"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-context-page"><p>Pega o contexto do canvas para a manipulação</p>
+</div></div>
+</li>
+<li><h3 id="properties_counter">counter</h3>
+<div class="counter"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-counter-page"><p>Contador do ângulo atual</p>
+</div></div>
+</li>
+<li><h3 id="properties_imagewrapper">imageWrapper</h3>
+<div class="imagewrapper"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-imagewrapper-page"><p>Wrapper para imagem que será carregada</p>
+</div></div>
+</li>
+<li><h3 id="properties_obj">obj</h3>
+<div class="obj"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-obj-page"><p>Objeto de configuração da directiva</p>
+</div></div>
+</li>
+<li><h3 id="properties_positionx">positionX</h3>
+<div class="positionx"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-positionx-page"><p>Ponto central da imagem em relação ao eixo das Abscissas</p>
+</div></div>
+</li>
+<li><h3 id="properties_positiony">positionY</h3>
+<div class="positiony"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-positiony-page"><p>Ponto central da imagem em relação ao eixo das Ordenadas</p>
+</div></div>
+</li>
+<li><h3 id="properties_seletor">seletor</h3>
+<div class="seletor"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-seletor-page"><p>Função que auxilia a seleção de elementos HTML</p>
+</div><h5 id="properties_seletor_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-seletor-page"><p>elem - Elemento HTML</p>
+</div></td></tr></table></div>
+</li>
+<li><h3 id="properties_x0">x0</h3>
+<div class="x0"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-x0-page"><p>Tamanho do lado esquerdo da imagem que não está contido dentro da caixa de exibição</p>
+</div></div>
+</li>
+<li><h3 id="properties_x1">x1</h3>
+<div class="x1"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-x1-page"><p>Tamanho da caixa de exibição</p>
+</div></div>
+</li>
+<li><h3 id="properties_x2">x2</h3>
+<div class="x2"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-x2-page"><p>Tamanho do lado direito da imagem que não está contido dentro da caixa de exibição</p>
+</div></div>
+</li>
+<li><h3 id="properties_y0">y0</h3>
+<div class="y0"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-y0-page"><p>Tamanho na parte superior da imagem que não está contido dentro da caixa de exibição</p>
+</div></div>
+</li>
+<li><h3 id="properties_y1">y1</h3>
+<div class="y1"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-y1-page"><p>Altura da caixa de exibição</p>
+</div></div>
+</li>
+<li><h3 id="properties_y2">y2</h3>
+<div class="y2"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-y2-page"><p>Tamanho na parte inferior da imagem que não está contido dentro da caixa de exibição</p>
+</div></div>
+</li>
+</ul>
+</div>
+<div class="member event"><h2 id="events">Events</h2>
+<ul class="events"><li><h3 id="events_dragleft">dragleft</h3>
+<div class="dragleft"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-dragleft-page"><p>Detecta o arrasto da imagem para a esquerda</p>
+</div><div class="inline"></div>
+<div class="inline"></div>
+<h5 id="events_dragleft_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>e</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-dragleft-page"><ul>
+<li>Evento do arrasto</li>
+</ul>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="events_dragright">dragright</h3>
+<div class="dragright"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-dragright-page"><p>Detecta o arrasto da imagem para a direta</p>
+</div><div class="inline"></div>
+<div class="inline"></div>
+<h5 id="events_dragright_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>e</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-dragright-page"><ul>
+<li>Evento do arrasto</li>
+</ul>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="events_dragup">dragup</h3>
+<div class="dragup"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-dragup-page"><p>Detecta o arrasto da imagem para cima</p>
+</div><div class="inline"></div>
+<div class="inline"></div>
+<h5 id="events_dragup_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>e</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-dragup-page"><ul>
+<li>Evento do arrasto</li>
+</ul>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="events_dragup">dragup</h3>
+<div class="dragup"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-dragup-page"><p>Detecta o arrasto da imagem para baixo</p>
+</div><div class="inline"></div>
+<div class="inline"></div>
+<h5 id="events_dragup_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>e</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-dragup-page"><ul>
+<li>Evento do arrasto</li>
+</ul>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="events_rotate-left">rotate-left</h3>
+<div class="rotate-left"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-rotate-left-page"><p>Detecta o click no botão de rotação para esquerda</p>
+</div><div class="inline"></div>
+<div class="inline"></div>
+<h5 id="events_rotate-left_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>e</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-rotate-left-page"><ul>
+<li>Evento do click</li>
+</ul>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="events_rotate-right">rotate-right</h3>
+<div class="rotate-right"><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-rotate-right-page"><p>Detecta o click no botão de rotação para direita</p>
+</div><div class="inline"></div>
+<div class="inline"></div>
+<h5 id="events_rotate-right_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>e</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="br-com-canvasrotate-page br-com-canvasrotate-canvasrotate-rotate-right-page"><ul>
+<li>Evento do click</li>
+</ul>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+</div>
