@@ -231,6 +231,7 @@
            * Função que inicializa a directiva após a imagem ser carregada
            */
           var initVars = function () {
+
             X  = obj.X  || imageWrapper.naturalWidth;
             x1 = obj.x1 || window.outerWidth;
             x0 = obj.x0 || (X - x1)/2;

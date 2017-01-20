@@ -104,6 +104,15 @@
              */
             var obj;
 
+            /**
+             * @ngdoc property
+             * @name br.com.canvasRotate:canvasRotate#escala
+             * @propertyOf br.com.canvasRotate:canvasRotate
+             * @description
+             * Escala d imagem em relação a real
+             */
+            var escala = 1;
+
             /* ==================== Horizontal ================ */
 
             /**
@@ -231,20 +240,30 @@
              * Função que inicializa a directiva após a imagem ser carregada
              */
             var initVars = function () {
-              X  = obj.X  || imageWrapper.naturalWidth;
-              x1 = obj.x1 || window.outerWidth;
+
+              // Verifica se a imagem está na horizontal ou vertical
+              if(imageWrapper.height <= imageWrapper.width){
+                escala  = (obj.Y ? (((window.outerHeight * 100)/ obj.Y)/100) : (((window.outerHeight * 100)/ imageWrapper.naturalHeight)/100));
+              }
+              else{
+                escala = (obj.X ? (((window.outerWidth * 100)/ obj.X)/100) : (((window.outerWidth * 100)/ imageWrapper.naturalWidth)/100));
+              }
+
+              X  = imageWrapper.naturalWidth * escala;
+              x1 = window.outerWidth;
               x0 = obj.x0 || (X - x1)/2;
               x2 = obj.x2 || (X - x1)/2;
 
-              Y  = obj.Y  || imageWrapper.naturalHeight;
-              y1 = obj.y1 || window.outerHeight;
+              Y  = (obj.Y  || imageWrapper.naturalHeight) * escala;
+              y1 =  window.outerHeight;
               y0 = obj.y0 || (Y - y1)/2;
               y2 = obj.y2 || (Y - y1)/2;
 
-              positionX = obj.positionX || (window.outerWidth/2);
-              positionY = obj.positionY || (window.outerHeight/2);
+              positionX = (obj.positionX || (window.outerWidth/2));
+              positionY = (obj.positionY || (window.outerHeight/2));
 
               counter = obj.angle || 0;
+              context.scale(escala, escala);
               drawRotatedImage(imageWrapper, positionX, positionY, counter);
             };
 
@@ -388,7 +407,9 @@
             $ionicGesture.on('dragleft', function (e) {
               x0 = positionX - (x1/2);
               x2 = positionX + (x1/2);
-              if((x0+x2) >= (-X + (x1*2))){
+              var cond = imageWrapper.naturalWidth > imageWrapper.naturalHeight ? (Math.abs(x0) + Math.abs(x2)) <= (X - 90) : (Math.abs(x0) + Math.abs(x2)) >= (X);
+
+              if(true){
                 positionX -= 3;
                 context.clearRect(0,0,canvas.width, canvas.height);
                 drawRotatedImage(imageWrapper, positionX, positionY, (counter || 0));
@@ -425,9 +446,13 @@
              * Detecta o arrasto da imagem para cima
              */
             $ionicGesture.on('dragup', function (e) {
-              context.clearRect(0,0,canvas.width, canvas.height);
-              positionY -= 3;
-              drawRotatedImage(imageWrapper, positionX, positionY, (counter || 0));
+              y0 = positionY - (y1/2);
+              y2 = positionY + (y1/2);
+              if((y0+y2) >= Y){
+                positionY -= 3;
+                context.clearRect(0,0,canvas.width, canvas.height);
+                drawRotatedImage(imageWrapper, positionX, positionY, (counter || 0));
+              }
             }, elem);
 
             //noinspection JSUnusedLocalSymbols
@@ -440,9 +465,13 @@
              * Detecta o arrasto da imagem para baixo
              */
             $ionicGesture.on('dragdown', function (e) {
-              context.clearRect(0,0,canvas.width, canvas.height);
-              positionY += 3;
-              drawRotatedImage(imageWrapper, positionX, positionY, (counter || 0));
+              y0 = positionY - (y1/2);
+              y2 = positionY + (y1/2);
+              if((y0+y2) <= Y){
+                positionY += 3;
+                context.clearRect(0,0,canvas.width, canvas.height);
+                drawRotatedImage(imageWrapper, positionX, positionY, (counter || 0));
+              }
             }, elem);
 
 
@@ -458,10 +487,10 @@
               context.clearRect(0,0,canvas.width, canvas.height);
               calcAngular();
               if(rigth){
-                drawRotatedImage(imageWrapper, positionX, positionY, counter+ANGULO);
+                drawRotatedImage(imageWrapper, positionX, positionY, counter + ANGULO);
                 counter+=ANGULO;
               }else{
-                drawRotatedImage(imageWrapper, positionX, positionY, counter-ANGULO);
+                drawRotatedImage(imageWrapper, positionX, positionY, counter - ANGULO);
                 counter-=ANGULO;
               }
             }
@@ -478,11 +507,18 @@
              * Desenha a imagem dentro do canvas
              */
             function drawRotatedImage(image, x, y, angle) {
+
+              canvas.width = window.outerWidth;
+              canvas.height = window.outerHeight;
+
               context.save();
               context.translate(x, y);
               context.rotate(angle * RADIANS);
+
+              context.scale(escala,escala);
+
               //noinspection JSCheckFunctionSignatures
-              context.drawImage(image, -(image.width/2), -(image.height/2));
+              context.drawImage(image, -((image.width * escala)/2), -((image.height )/2));
               context.restore();
             }
 
