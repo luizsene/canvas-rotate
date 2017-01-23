@@ -51,11 +51,11 @@
       style.innerHTML = canvasRotateSalvar + canvasRotateLeft + canvasRotateRight;
       document.getElementsByTagName('head')[0].appendChild(style);
 
-      var template = '<section style="position: absolute; bottom: 0;">' +
+      var template = '<section style="position: absolute; bottom: 0; height: 30px; margin-bottom: 10px;">' +
                         '<div>' +
-                          '<a class="canvas-rotate-left button button-icon icon ion-refresh" id="rotate-left"></a>' +
+                        //  '<a class="canvas-rotate-left button button-icon icon ion-refresh" id="rotate-left"></a>' +
                           '<a class="canvas-rotate-salvar">Salvar</a>' +
-                          '<a class="canvas-rotate-right button button-icon icon ion-refresh" id="rotate-right"></a>' +
+                       //   '<a class="canvas-rotate-right button button-icon icon ion-refresh" id="rotate-right"></a>' +
                         '</div>' +
                       '</section>';
 
@@ -249,7 +249,7 @@
                 escala = (obj.X ? (((window.outerWidth * 100)/ obj.X)/100) : (((window.outerWidth * 100)/ imageWrapper.naturalWidth)/100));
               }
 
-              X  = imageWrapper.naturalWidth * escala;
+              X  = (obj.X  || imageWrapper.naturalWidth) * escala;
               x1 = window.outerWidth;
               x0 = obj.x0 || (X - x1)/2;
               x2 = obj.x2 || (X - x1)/2;
@@ -280,6 +280,7 @@
               var tempY0 = y0;
               var tempY1 = y1;
               var tempY2 = y2;
+
               //noinspection JSSuspiciousNameCombination
               Y = X;
               //noinspection JSSuspiciousNameCombination
@@ -296,8 +297,11 @@
               x1 = tempY1;
               //noinspection JSSuspiciousNameCombination
               x2 = tempY2;
+
+
               positionX = (canvas.width/2);
               positionY = (canvas.height/2);
+
               drawRotatedImage(imageWrapper, positionX, positionY, counter);
             };
 
@@ -406,11 +410,9 @@
              */
             $ionicGesture.on('dragleft', function (e) {
               x0 = positionX - (x1/2);
-              x2 = positionX + (x1/2);
-              var cond = imageWrapper.naturalWidth > imageWrapper.naturalHeight ? (Math.abs(x0) + Math.abs(x2)) <= (X - 90) : (Math.abs(x0) + Math.abs(x2)) >= (X);
-
-              if(true){
-                positionX -= 3;
+              x2 = X - (Math.abs(x0) + Math.abs(x1));
+              if(x2 > 35){
+                positionX -= 1;
                 context.clearRect(0,0,canvas.width, canvas.height);
                 drawRotatedImage(imageWrapper, positionX, positionY, (counter || 0));
               }
@@ -427,9 +429,9 @@
              */
             $ionicGesture.on('dragright', function (e) {
               x0 = positionX - (x1/2);
-              x2 = positionX + (x1/2);
-              if((x0+x2) <= X){
-                positionX += 3;
+              x2 = X - (Math.abs(x0) + Math.abs(x1));
+              if(x0 < 35){
+                positionX += 1;
                 context.clearRect(0,0,canvas.width, canvas.height);
                 drawRotatedImage(imageWrapper, positionX, positionY, (counter || 0));
               }
