@@ -1,23 +1,5 @@
 <ion-view view-title="Dashboard">
-  <ion-content class="padding">
-    <h2>Welcome to Canvas Rotate</h2>
-
-    <section style="display: none">
-      <canvas id="canvas-rotate"></canvas>
-    </section>
-
-    <section class="row" style="height:500px; border:1px solid">
-      <div class="col">
-        <div canvas-rotate id="wallpapper" style="background-size: contain; height: 100%; background-image: url(img/mh3yxiJ.jpg); background-repeat: no-repeat;"></div>
-      </div>
-    </section>
-
-    <section class="row">
-      <div class="col" style="text-align: center; margin-top: 20px">
-        <button class="button button-energized" id="rotate-90-left">Rotate 90° left</button>
-        <button class="button button-energized" id="rotate-90-right">Rotate 90° rigth</button>
-      </div>
-    </section>
-
+  <ion-content scroll="false">
+      <div canvas-rotate ></div>
   </ion-content>
 </ion-view>
